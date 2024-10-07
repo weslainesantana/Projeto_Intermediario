@@ -8,7 +8,6 @@ import com.weslaine.projeto_intermediario.models.ProductEntity;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
-    ProductRequestDTO toCreate(ProductEntity productEntity);
 
     ProductResponseDTO toResponse(ProductEntity productEntity);
 
