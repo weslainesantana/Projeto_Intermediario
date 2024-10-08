@@ -38,10 +38,11 @@ public class ProductService {
 
     public ProductResponseDTO update(Long id, ProductRequestDTO productRequestDTO) {
         Optional<ProductEntity> product = productRepository.findById(id);
-        if (product.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum produto com esse Id.");
+        if (product.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nenhum produto com esse Id.");
         ProductEntity productEntity = productMapper.toEntity(productRequestDTO);
         productEntity.setId(id);
-        return productMapper.toResponse(productRepository.save(productEntity))
+        return productMapper.toResponse(productRepository.save(productEntity));
     }
 
     public ProductResponseDTO delete(Long id) {
